@@ -1,8 +1,12 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { Routes } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
 
-import { routes } from './app.routes';
+export const routes: Routes = [
+  { path: '', redirectTo: '/login/paciente', pathMatch: 'full' },
+  { path: 'login/:tipo', component: LoginComponent },
+];
 
-export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+export const appConfig = {
+  providers: [provideRouter(routes)],
 };
